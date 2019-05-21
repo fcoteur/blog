@@ -1,12 +1,12 @@
-require('dotenv').config()
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
     title: "Pancho's Tapas",
-    author: "Pako"
+    author: "Pako",
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -14,13 +14,13 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    'gatsby-plugin-sass',
+    "gatsby-plugin-sass",
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'src',
-        path: `${__dirname}/src/`
-      }
+        name: "src",
+        path: `${__dirname}/src/`,
+      },
     },
   ],
 }

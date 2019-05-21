@@ -1,13 +1,18 @@
 .products {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   list-style-type: none;
   margin: 0;
 }
 
 .product {
-  margin: 1rem 1rem;
-  width: 200px;
+  width: 225px;
+  /*   border: solid 1pt grey;
+ */
+  div {
+    margin: 1rem;
+  }
 
   a {
     background: #f4f4f4;
@@ -19,22 +24,21 @@
 
   a:hover {
     background: #e4e4e4;
-  
   }
 
   h4 {
     margin-bottom: 0;
-
   }
 
-  p{
+  p {
     color: #777777;
-    font-size:0.8rem;
+    font-size: 0.8rem;
     font-style: italic;
   }
 
   img {
-    width: 150px;
-    height: 150px;
+    width: 225px;
+    height: 225px;
+    margin-bottom: 0;
   }
 }
