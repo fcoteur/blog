@@ -8,10 +8,9 @@
 
 .product {
   width: 225px;
-  /*   border: solid 1pt grey;
- */
+
   div {
-    margin: 1rem;
+    margin: 0.5rem 0rem;
   }
 
   a {
@@ -26,19 +25,20 @@
     background: #e4e4e4;
   }
 
-  h4 {
-    margin-bottom: 0;
+  h5 {
+    margin-bottom: 0.2rem;
+    min-height: 2rem;
   }
 
   p {
     color: #777777;
     font-size: 0.8rem;
-    font-style: italic;
+    margin-bottom: 0.2rem;
+    min-height: 3rem;
   }
 
   img {
     width: 225px;
-    height: 225px;
     margin-bottom: 0;
   }
 }

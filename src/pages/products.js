@@ -37,8 +37,7 @@ export default function BlogPage() {
             <div className={productStyles.product}>
               <img alt={edge.node.title} src={edge.node.picture.file.url} />
               <div>
-                <h4>{edge.node.title}</h4>
-                <p>{edge.node.date}</p>
+                <h5>{edge.node.title}</h5>
                 {documentToReactComponents(edge.node.description.json)}
               </div>
             </div>
