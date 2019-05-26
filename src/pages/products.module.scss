@@ -42,3 +42,17 @@
     margin-bottom: 0;
   }
 }
+
+.filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+
+  button {
+    margin: 0.5rem;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+  }
+}

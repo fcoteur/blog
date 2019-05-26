@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
@@ -7,6 +7,9 @@ import Head from "../components/head"
 import productStyles from "./products.module.scss"
 
 export default function BlogPage() {
+  const [coldSelect, setColdSelect] = useState(true)
+  const [warmSelect, setWarmSelect] = useState(true)
+
   const data = useStaticQuery(graphql`
     query {
       allContentfulProductItem(sort: { fields: date, order: DESC }) {
@@ -22,6 +25,7 @@ export default function BlogPage() {
             description {
               json
             }
+            cold
           }
         }
       }
@@ -31,17 +35,47 @@ export default function BlogPage() {
   return (
     <Layout>
       <Head title="Products" />
+      <div className={productStyles.filters}>
+        <button
+          onClick={() => {
+            setWarmSelect(true)
+            setColdSelect(true)
+          }}
+        >
+          see all tapas
+        </button>
+        <button
+          onClick={() => {
+            setWarmSelect(false)
+            setColdSelect(true)
+          }}
+        >
+          cold tapas
+        </button>
+        <button
+          onClick={() => {
+            setWarmSelect(true)
+            setColdSelect(false)
+          }}
+        >
+          warm tapas
+        </button>
+      </div>
       <div className={productStyles.products}>
         {data.allContentfulProductItem.edges.map(edge => {
-          return (
-            <div className={productStyles.product}>
-              <img alt={edge.node.title} src={edge.node.picture.file.url} />
-              <div>
-                <h5>{edge.node.title}</h5>
-                {documentToReactComponents(edge.node.description.json)}
+          if (edge.node.cold === coldSelect || edge.node.cold === !warmSelect) {
+            return (
+              <div className={productStyles.product}>
+                <img alt={edge.node.title} src={edge.node.picture.file.url} />
+                <div>
+                  <h5>{edge.node.title}</h5>
+                  {documentToReactComponents(edge.node.description.json)}
+                </div>
               </div>
-            </div>
-          )
+            )
+          } else {
+            return null
+          }
         })}
       </div>
     </Layout>
